@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.diogopires.service_lib">
+<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+    <application android:name=".LibApp">
+        <service android:name=".service.server.service.Orchestrator" android:exported="true"></service>
+    </application>
+
+</manifest>
