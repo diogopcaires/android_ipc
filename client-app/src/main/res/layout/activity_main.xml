@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.diogopires.client_app.MainActivity">
+    tools:context="com.diogopires.client_app.ui.MainActivity">
 
     <TextView
         android:id="@+id/client_textBox"
