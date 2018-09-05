@@ -11,13 +11,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         sender_btn.setOnClickListener({
-            var api = RepositoryImpl(applicationContext)
+            val api = RepositoryImpl(applicationContext)
 
             api.getCharacter()
                     .observeOn(AndroidSchedulers.mainThread())
@@ -28,8 +27,5 @@ class MainActivity : AppCompatActivity() {
                         throw error
                     })
         })
-
     }
-
-
 }
