@@ -58,11 +58,13 @@ class MainActivityTest {
     @Test
     fun when_call_repository_should_input_result_in_text_box() {
 
+
         every { repository.getQuote() } answers { Single.defer({ Single.just("pipitu") }) }
 
         activity.sender_btn.performClick()
 
         assert(activity.client_textBox.text == "pipitu")
+        stopKoin()
     }
 
 
@@ -74,7 +76,7 @@ class MainActivityTest {
         activity.sender_btn.performClick()
 
         Assert.assertEquals("Error", ShadowToast.getTextOfLatestToast())
-
+        stopKoin()
     }
 
     class RxImmediateSchedulerRule : TestRule {
