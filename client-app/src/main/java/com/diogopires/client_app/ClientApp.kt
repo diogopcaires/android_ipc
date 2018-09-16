@@ -12,8 +12,7 @@ class ClientApp : Application() {
         startKoin(listOf(getModule()))
     }
 
-    fun getModule() = module {
-
+    private fun getModule() = module {
         factory { RepositoryImpl(applicationContext) }
     }
 }

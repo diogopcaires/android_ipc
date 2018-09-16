@@ -2,6 +2,7 @@ package com.diogopires.client_app.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.diogopires.client_app.R
 import com.diogopires.client_app.data.Repository
 import com.diogopires.client_app.data.RepositoryImpl
@@ -25,9 +26,10 @@ class MainActivity : AppCompatActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe({ value ->
+                        System.out.println(value)
                         client_textBox.text = value
-                    }, { error ->
-                        throw error
+                    }, {
+                        Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
                     })
         })
     }
