@@ -9,4 +9,5 @@ interface Repository{
     fun getCharacter(): Single<String>
     fun getHouse(): Single<String>
     fun getCity(): Single<String>
+    fun getQuote(): Single<String>
 }

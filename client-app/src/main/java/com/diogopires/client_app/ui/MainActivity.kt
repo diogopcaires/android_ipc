@@ -8,20 +8,20 @@ import com.diogopires.client_app.data.RepositoryImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.java.standalone.KoinJavaComponent.inject
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var repository: Repository
+    private val repository: Repository  by inject(RepositoryImpl::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         sender_btn.setOnClickListener({
-            repository = RepositoryImpl(applicationContext)
 
-            repository.getCharacter()
+            repository.getQuote()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe({ value ->
